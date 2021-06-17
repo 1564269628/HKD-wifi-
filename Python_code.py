@@ -1,3 +1,4 @@
+
 import urllib.request
 import requests
 import time
@@ -32,6 +33,16 @@ else:
     f.write('')
     f.close()
 
+yys=""
+
+if os.access("D:\HKD-wifi-yys.txt", os.F_OK):
+    f = open("D:\HKD-wifi-yys.txt","r")   #设置文件对象
+    yys=f.read()
+    f.close() #关闭文件
+else:
+    f = open("D:\HKD-wifi-yys.txt","w")
+    f.write('')
+    f.close()
 
 kv={"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 "Accept-Encoding": "gzip, deflate",
@@ -48,7 +59,7 @@ kv={"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,
 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
     }
 
-data={
+data_yd={
     "DDDDD": ",0,"+account+"@wcmcc",
 "upass": password,
 "R1": "0",
@@ -67,7 +78,51 @@ data={
 "Login": ""
     }
 
+data_lt={
+    "DDDDD": ",0,"+account+"@unicom",
+"upass": password,
+"R1": "0",
+"R2": "0",
+"R3": "0",
+"R6": "0",
+"para": "00",
+"0MKKey": "123456",
+"buttonClicked": "",
+"redirect_url": "",
+"err_flag": "",
+"username":"" ,
+"password": "",
+"user": "",
+"cmd": "",
+"Login": ""
+    }
 
+data_dx={
+    "DDDDD": ",0,"+account+"@wtelecom",
+"upass": password,
+"R1": "0",
+"R2": "0",
+"R3": "0",
+"R6": "0",
+"para": "00",
+"0MKKey": "123456",
+"buttonClicked": "",
+"redirect_url": "",
+"err_flag": "",
+"username":"" ,
+"password": "",
+"user": "",
+"cmd": "",
+"Login": ""
+    }
+
+
+if yys=="1":
+    data=data_yd
+elif yys=="2":
+    data=data_lt
+else:
+    data=data_dx
 
 
 
@@ -101,6 +156,7 @@ for mm in range(1,20):
             break
     except:
         pass
+
 
 
 
