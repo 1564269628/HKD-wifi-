@@ -1,11 +1,16 @@
+fn r()
+
+
+
+
 
 t()
 {
   
   fr("%account.txt",account)
 fr("%password.txt",password)
-
-f(account==null||password==null)
+fr("%yys.txt",yys)
+f(account==null||password==null||yys==null||account==""||password==""||yys=="")
 {
   uigo("sz.iyu")
   
@@ -53,7 +58,20 @@ f(ip==null)
  //syso(a)
 s heard="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9,||Accept-Encoding: gzip, deflate||Accept-Language: zh-CN,zh;q=0.9||Cache-Control: max-age=0||Connection: keep-alive||Content-Length: 165||Content-Type: application/x-www-form-urlencoded||Cookie: PHPSESSID=925ucrjemcq23rd0hs4t9sqq20||Host: 10.10.10.111:801||Origin: http://10.10.10.111||Referer: http://10.10.10.111/||Upgrade-Insecure-Requests: 1||User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
 
-ss("DDDDD=,0,"+account+"@wcmcc&upass="+password+"&R1= 0&R2= 0&R3= 0&R6= 0&para= 00&0MKKey= 123456&buttonClicked=&redirect_url=&err_flag=&username=&password=&user=&cmd=&Login=",post)
+f(yys==1)
+{
+ s y="wcmcc"
+}
+else f(yys==2)
+{
+  s y="unicom"
+}
+else
+{
+ s y="wtelecom"
+}
+
+ss("DDDDD=,0,"+account+"@"+y+"&upass="+password+"&R1= 0&R2= 0&R3= 0&R6= 0&para= 00&0MKKey= 123456&buttonClicked=&redirect_url=&err_flag=&username=&password=&user=&cmd=&Login=",post)
 
 
 //syso(post)
@@ -97,3 +115,5 @@ end()
 
 
 }
+
+end fn
